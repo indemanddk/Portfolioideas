@@ -1,0 +1,224 @@
+/*	#####################################################
+	#													#
+	# CSS done by Thomas Bryder, in-DEmand.dk			#
+	# e: info@in-demand.dk								#
+	# Licence free										#
+	#													#
+	#													#
+	#####################################################
+*/
+
+/* Font include ****************************************/
+
+@import url(https://fonts.googleapis.com/css?family=Raleway);
+
+/*******************************************************/
+
+html {
+	font-family			: "Raleway", Tahoma, sans sherif;
+	font-size			: 1.1em;
+	font-weight			: 400;
+	text-rendering		: optimizeLegibility;
+}
+a:any-link {
+	text-decoration		: none;
+}
+
+* {
+    box-sizing			: border-box;
+}
+
+Body, #mwrapper {
+	width				: 100%;
+	margin				: 0;
+	float				: none;
+}	
+
+#dnpwrap, #effectwrap {
+	position			: relative;
+	margin				: auto;
+	width				: 90%;
+	box-shadow			: 0 3px 7px 0 rgba(0, 0, 0, .20);
+	padding				: 30px;
+}
+
+#spacer {
+	width				: 100%;
+	background-color	: #48738e;
+	height				: 2px;
+	margin				: 10px 0 10px 0;
+	content				: '';
+}
+
+#centered {
+	position			: relative;
+	margin				: auto;
+	width				: 90%;
+	
+}
+
+
+/* SECTION 1 ********************************************/
+
+
+.row {
+    margin				: 10px -16px;
+}
+
+.row,
+.row > .column {
+    padding				: 8px;
+}
+
+.column {
+    float				: left;
+    width				: 33.33%;
+    display				: none;
+}
+
+.row:after {
+    content				: "";
+    display				: table;
+    clear				: both;
+}
+
+.content {
+    background-color	: #fff;
+    padding				: 10px;
+}
+
+.show {
+  display				: block;
+}
+
+.btn {
+  border				: none;
+  outline				: none;
+  padding				: 12px 16px;
+  background-color		: #fff;
+}
+
+.btn:hover {
+  background-color		: #ddd;
+}
+
+.btn.active {
+  background-color		: #666;
+  color					: #fff;
+}
+
+/* SECTION 2 ********************************************/
+
+.btn, .ripplethis {
+	background-color	: #fff;
+    box-shadow			: 0 3px 7px 0 rgba(0, 0, 0, .26);
+	border-radius		: 2px;
+	border				: 1px solid #c2c2c2;
+    cursor				: pointer;
+	position			: relative;
+	min-height			: 36px;
+	line-height			: 36px;
+	min-width			: 140px;
+	max-width			: 100%;
+	display				: inline-block;
+	padding				: 8px 24px;
+	margin				: 10px 10px;
+	font-size			: 0.9em;
+    text-align			: center;
+}
+
+
+/* Rippleeffects triggered by java on click */
+.ink {
+	display				: block; 
+	position			: absolute;
+	background			: rgba(0,0,0,.6);
+	border-radius		: 100%;
+	transform			: scale(0);
+}
+@keyframes ripple {
+	/*scale the element to 250% to safely cover the entire link and fade it out*/
+	100% {opacity: 0; transform: scale(2.5);}
+}
+
+/* CSS styled ripple effect ***/
+.btn-rip {
+    color: #c2c2c2;
+    width: 200px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    text-decoration: none;
+    overflow: hidden;
+}
+
+.btn-rip:after {
+    background			: #f2e73e;
+    display				: block;
+    position			: absolute;
+/*    padding				: 300% 0 0 350%;*/
+    padding-top: 300%;
+    padding-left: 350%;
+    margin-left: -30px!important;
+    margin-top: -120%;
+/*    margin				: -120% 0 0 -20px;*/
+    opacity				: 0;
+    content				: '';
+    transition			: all 0.8s
+}
+
+.btn-rip:active:after {
+    padding: 0;
+    margin: 0;
+    opacity: 1;
+    transition: 0s
+}
+
+
+.btn-add {
+  color: #f4511e;
+  text-align: center;
+  width: 200px;
+  transition: all 0.5s;
+}
+
+.btn-add span {
+
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.btn-add span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.btn-add:hover span {
+  padding-right: 25px;
+}
+
+.btn-add:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+/* SECTION Footer **************************************/
+
+div#Footer {
+	width				: 100%;
+	background-color	: #48738e;
+	min-height			: 160px;
+	text-align			: center;
+	font-size			: 0.8em;
+	color				: white;
+	padding				: 34px 0 0 0;
+}
+
+div#footertext {
+	margin				: 40px 0 0 0;
+	position			: relative;
+}

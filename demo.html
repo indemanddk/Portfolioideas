@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="da-DK">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Portfolio image gallery and effectstyling on elm.</title>
+
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="js/ripple.min.js"></script>
+    
+    <script type="text/javascript">
+
+
+      $(function(){
+        $('.ripplethis').ripple({
+          color:'#1b435d',
+          time:'.8s'
+        });
+      });
+$( document ).ready(function() {      
+	filterSelection("all")
+	
+	var btnContainer = document.getElementById("mbc");
+var btns = btnContainer.getElementsByClassName("btn");
+for (var i = 0; i < btns.length; i++) {
+  btns[i].addEventListener("click", function(){
+    var current = document.getElementsByClassName("active");
+    current[0].className = current[0].className.replace(" active", "");
+    this.className += " active";
+  });
+}
+
+});
+
+function filterSelection(c) {
+  var x, i;
+  x = document.getElementsByClassName("column");
+  if (c == "all") c = "";
+  for (i = 0; i < x.length; i++) {
+    w3RemoveClass(x[i], "show");
+    if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+  }
+}
+
+function w3AddClass(element, name) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    if (arr1.indexOf(arr2[i]) == -1) {element.className += " " + arr2[i];}
+  }
+}
+
+function w3RemoveClass(element, name) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    while (arr1.indexOf(arr2[i]) > -1) {
+      arr1.splice(arr1.indexOf(arr2[i]), 1);     
+    }
+  }
+  element.className = arr1.join(" ");
+}
+
+    </script>
+  </head>
+  <body>
+  
+  <div id="mwrapper">
+  	<div id="intro">
+  		<div id="centered">
+  		<h1>  1. section is a Testarea for responsive images! 2. is a playground for div, button and a effects.   </h1>
+  		</div>
+  	</div>
+  	
+  	<div id="spacer"></div>
+  	
+  	<div id="dnpwrap">This is portfolio examples...
+  		<div id="centered">
+  			<div id="mbc">
+  				<button class="btn active" onclick="filterSelection('all')"> Show all </button>
+				<button class="btn" onclick="filterSelection('web')"> Web </button>
+				<button class="btn" onclick="filterSelection('gfx')"> GFX </button>
+				<button class="btn" onclick="filterSelection('spain')"> Spain </button>
+			</div>
+			
+			<div class="row">
+			  <div class="column web">
+			    <div class="content">
+			      <img src="img/Showcase_garn1o.jpg" alt="web" style="width:100%">
+			      <h4>Showcase 1</h4>
+			      <p>Lorem ipsum dolor..</p>
+			    </div>
+			  </div>
+			  <div class="column web">
+			    <div class="content">
+			    <img src="img/Showcase_b29.jpg" alt="web" style="width:100%">
+			      <h4>Lights</h4>
+			      <p>Lorem ipsum dolor..</p>
+			    </div>
+			  </div>
+			  <div class="column gfx">
+			    <div class="content">
+			    <img src="img/Showcase_eqi.jpg" alt="gfx" style="width:100%">
+			      <h4>Businesscard</h4>
+			      <p>Lorem ipsum dolor..</p>
+			    </div>
+			  </div>
+			  <div class="column spain">
+			    <div class="content">
+			      <img src="img/spain_02.jpg" alt="spain" style="width:100%">
+			      <h4>Camino</h4>
+			      <p>Lorem ipsum dolor..</p>
+			    </div>
+			  </div>
+			  <div class="column people">
+			    <div class="content">
+			    <img src="img/spain_03.jpg" alt="Spain" style="width:100%">
+			      <h4>Café</h4>
+			      <p>Lorem ipsum dolor..</p>
+			    </div>
+			  </div>
+			  <div class="column spain">
+			    <div class="content">
+			    <img src="img/spain_01.jpg" alt="spain" style="width:100%">
+			      <h4>Airport/train</h4>
+			      <p>Lovely architecture</p>
+			    </div>
+			  </div>
+			</div>
+
+  		</div>
+  	
+  	</div>
+  	
+  	<div id="spacer"></div>
+  	
+  	<div id="effectwrap">
+  		<div id="centered">
+  			<h2>click and play - grap what you like :)</h2>
+  			<div class="btn ripplethis" >Ripple effect on div</div>
+  			<button class="btn btn-rip" >Button - CSS ripple</button>
+ 			<button class="btn btn-add" onclick="location.href='#'"><span>Button link</span></button>
+  		</div>
+  	</div>
+  	
+  	<div id="spacer"></div>
+  	
+  	<div id="Footer">
+  		<div id="footertext">Feel free to be inspired and use this :)<br />GPL v3 ~ Regards: Thomas Bryder</div>
+  	</div>
+  </div>
+  
+  </body>
+</html>
